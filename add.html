@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body {
+  background: #fff;
+  margin: 50px;
+  background-color: pink;
+}
+
+.smiley{
+  position:relative;
+  width: 70px;
+  height: 70px;
+}
+
+.loader {
+  position: relative;
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to bottom, #fff 50%, #51cf66 50%);
+  animation: rotate 2s infinite;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  bottom: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.dot-left, .dot-right {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #51cf66;
+  background-color: pink;
+}
+
+.dot-left {
+  left: 4px;
+  top: 10px;
+  animation: dissapearL 2s infinite;
+}
+
+.dot-right {
+  right: 6px;
+  top: 10px;
+  animation: dissapearR 2s infinite;
+}
+
+@keyframes rotate{
+  from{
+    transform:rotate(0);
+  }
+  to{
+    transform:rotate(720deg);
+  }
+}
+
+@keyframes dissapearL{
+  0%{
+    transform:scale(1);
+  }
+  10%{
+    transform:scale(1);
+  }
+  15%{
+    transform:scale(0);
+  }
+  45%{
+    transform:scale(0);
+  }
+  50%{
+    transform:scale(1);
+  }
+}
+
+@keyframes dissapearR{
+  0%{
+    transform:scale(1);
+  }
+  15%{
+    transform:scale(1);
+  }
+  20%{
+    transform:scale(0);
+  }
+  65%{
+    transform:scale(0);
+  }
+  70%{
+    transform:scale(1);
+  }
+}
+	</style>
+</head>
+<body>
+<center><div class="smiley ">
+  <div class="loader">
+  </div>
+  <div class="dot-left"></div>
+  <div class="dot-right"></div>
+</div> </center> 
+</body>
+</html>
