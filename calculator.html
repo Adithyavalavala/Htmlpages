@@ -1,59 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>calculator</title>
-	<style>
-		body{
-			text-align: center;
-			background-color: pink;
-		}
-		table{
-			margin-left: 620px;
-			margin-top: 20px;
-			background-color: skyblue;
-		}
-		input{
-			margin-top: 30px;
-			border:5px solid black;
-		}
-		h1{
-			color:orange;
-		}
-		button{
-			color:green;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+	<script>
+		var firstnumber="";
+var secondnumber="";
+var operator="";
+function appendnum(num){
+	if (operator===""){
+		firstnumber=firstnumber+num;
+		document.getElementById("result").value=firstnumber;
+	}else{
+		secondnumber=secondnumber+num;
+		document.getElementById("result").value=secondnumber;
+	}
+}
+function operatorset(opt){
+	operator=opt;
+	document.getElementById("result").value=secondnumber;
+}
+	 var result="";
+function equalsto(){
+
+	switch(operator){
+
+		case '+':
+				result=parseInt(firstnumber)+parseInt(secondnumber);
+				break;
+		case '-':
+				result=parseInt(firstnumber)-parseInt(secondnumber);
+				break;
+		case '*':
+				result=parseInt(firstnumber)*parseInt(secondnumber);
+				break;
+		case '/':
+				result=parseInt(firstnumber)/parseInt(secondnumber);
+				break;
+
+	}
+	operator="";
+	firstnumber=result;
+	secondnumber="";
+document.getElementById("result").value=result;
+}
+
+function   clear1(){
+	document.getElementById("result").value="";
+	firstnumber="";
+	secondnumber="";
+	operator="";
+}
+	</script>
 </head>
 <body>
-	<h2>calculator</h2>
-	<input type="text"id="result"readonly>
+	<center>
+	<h2>CALCULATOR</h2>
+	<input type="text" id="result" readonly value=''>
 	<table>
 		<tr>
-			<td><button onclick="Appendnumber(7)">7</button></td>
-			<td><button onclick="Appendnumber(8)">8</button></td>
-			<td><button onclick="Appendnumber(9)">9</button></td>
-			<td><button onclick="Setoperator('+')">+</button></td>
+			<td><button onclick="appendnum(7)">7</button></td>
+			<td><button onclick="appendnum(8)">8</button></td>
+			<td><button onclick="appendnum(9)">9</button></td>
+			<td><button onclick="operatorset('+')">+</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="Appendnumber(4)">4</button></td>
-			<td><button onclick="Appendnumber(5)">5</button></td>
-			<td><button onclick="Appendnumber(6)">6</button></td>
-			<td><button onclick="Setoperator('-')">-</button></td>
+			<td><button onclick="appendnum(4)">4</button></td>
+			<td><button onclick="appendnum(5)">5</button></td>
+			<td><button onclick="appendnum(6)">6</button></td>
+			<td><button onclick="operatorset('-')">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="Appendnumber(3)">3</button></td>
-			<td><button onclick="Appendnumber(2)">2</button></td>
-			<td><button onclick="Appendnumber(1)">1</button></td>
-			<td><button onclick="Setoperator('*')">*</button></td>
+			<td><button onclick="appendnum(1)">1</button></td>
+			<td><button onclick="appendnum(2)">2</button></td>
+			<td><button onclick="appendnum(3)">3</button></td>
+			<td><button onclick="operatorset('*')">*</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="Appendnumber(0)">0</button></td>
-			<td><button onclick="Clearresult('c')">c</button></td>
-			<td><button onclick="Calculator('=')">=</button></td>
-			<td><button onclick="Setoperator('/')">/</button></td>
-		</tr>		
+			<td><button onclick="clear1()">c</button></td>
+			<td><button onclick="appendnum(0)">0</button></td>
+			<td><button onclick="equalsto()">=</button></td>
+			<td><button onclick="operatorset('/')">/</button></td>
+		</tr>
 	</table>
+	</center>
 </body>
-<script type="text/javascript"src="intro.js">
-	</script>
 </html>
